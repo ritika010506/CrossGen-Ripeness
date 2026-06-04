@@ -1,0 +1,96 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# ==========================
+# Machine Learning Models
+# ==========================
+
+# Ignore only individual model files
+code/models/efficientnet_model.h5
+code/models/mobilenet_model.h5
+code/models/resnet_model.h5
+
+*.hdf5
+*.keras
+*.pkl
+*.joblib
+*.onnx
+*.pt
+*.pth
+
+# ==========================
+# Datasets
+# ==========================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.csv
+*.xlsx
+
+# Large project folders
+zips/
+datasets/
+data/
+
+# ==========================
+# Node.js / React
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build folders
+build/
+dist/
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================
+# Environment Variables
+# ==========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+
+# ==========================
+# Project-specific
+# ==========================
+
+# Keep ensemble_weights.json, ignore other model files above
+zips/
+files/
+.dist/
