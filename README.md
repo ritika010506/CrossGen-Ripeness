@@ -1,4 +1,4 @@
-# 🍎 Cross-Fruit Ripeness Detection System
+# Cross-Fruit Ripeness Detection System
 
 A machine learning application that predicts whether a fruit is **unripe**, **ripe**, or **overripe** from an uploaded image.
 
