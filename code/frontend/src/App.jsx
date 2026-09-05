@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-const API_URL = "http://127.0.0.1:8000";  // replace with your Render URL
+const API_URL = "https://crossgen-ripeness.onrender.com";  // replace with your Render URL
 
 const LABELS = {
   ripe:     { emoji: "✅", color: "#1D9E75", message: "This fruit is ripe and ready to eat." },
