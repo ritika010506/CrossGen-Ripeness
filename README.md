@@ -144,7 +144,6 @@ before running the application.
 * Improve cross-fruit generalization performance
 * Optimize model size for deployment
 * Add mobile-friendly UI enhancements
-* Deploy using Render and Vercel
 
 ---
 
