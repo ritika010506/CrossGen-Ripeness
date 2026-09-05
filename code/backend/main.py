@@ -1,13 +1,12 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import tensorflow as tf
-from tensorflow.keras.applications import mobilenet_v2, efficientnet, resnet50
-import numpy as np
-from PIL import Image
-import io, json, os
-from huggingface_hub import hf_hub_download
 import keras
 from keras.applications import mobilenet_v2, efficientnet, resnet50
+import numpy as np
+from PIL import Image
+import io, json
+from huggingface_hub import hf_hub_download
 
 app = FastAPI()
 
