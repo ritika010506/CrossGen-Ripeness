@@ -4,7 +4,8 @@ import tensorflow as tf
 from tensorflow.keras.applications import mobilenet_v2, efficientnet, resnet50
 import numpy as np
 from PIL import Image
-import io, json
+import io, json, os
+from huggingface_hub import hf_hub_download
 
 app = FastAPI()
 
@@ -17,15 +18,40 @@ app.add_middleware(
 )
 
 # ── Load models once at startup ───────────────────────────────────────────
-print("Loading models...")
-model1 = tf.keras.models.load_model("../models/mobilenet_model.h5")
-model2 = tf.keras.models.load_model("../models/efficientnet_model.h5")
-model3 = tf.keras.models.load_model("../models/resnet_model.h5")
+print("Downloading/loading models from Hugging Face...")
 
-with open("../models/ensemble_weights.json") as f:
+HF_REPO_ID = "ritika010506/ripeness-models"
+
+mobilenet_path = hf_hub_download(
+    repo_id=HF_REPO_ID,
+    filename="mobilenet_model.h5"
+)
+
+efficientnet_path = hf_hub_download(
+    repo_id=HF_REPO_ID,
+    filename="efficientnet_model.h5"
+)
+
+resnet_path = hf_hub_download(
+    repo_id=HF_REPO_ID,
+    filename="resnet_model.h5"
+)
+
+weights_path = hf_hub_download(
+    repo_id=HF_REPO_ID,
+    filename="ensemble_weights.json"
+)
+
+model1 = tf.keras.models.load_model(mobilenet_path)
+model2 = tf.keras.models.load_model(efficientnet_path)
+model3 = tf.keras.models.load_model(resnet_path)
+
+with open(weights_path) as f:
     ew = json.load(f)
+
 w1, w2, w3 = ew["w1"], ew["w2"], ew["w3"]
 
+print("Models ready.")
 CLASS_NAMES = ["overripe", "ripe", "unripe"]  # must match your training folder order
 print("Models ready.")
 
