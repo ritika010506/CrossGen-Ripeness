@@ -6,6 +6,8 @@ import numpy as np
 from PIL import Image
 import io, json, os
 from huggingface_hub import hf_hub_download
+import keras
+from keras.applications import mobilenet_v2, efficientnet, resnet50
 
 app = FastAPI()
 
@@ -42,9 +44,9 @@ weights_path = hf_hub_download(
     filename="ensemble_weights.json"
 )
 
-model1 = tf.keras.models.load_model(mobilenet_path)
-model2 = tf.keras.models.load_model(efficientnet_path)
-model3 = tf.keras.models.load_model(resnet_path)
+model1 = keras.models.load_model(mobilenet_path)
+model2 = keras.models.load_model(efficientnet_path)
+model3 = keras.models.load_model(resnet_path)
 
 with open(weights_path) as f:
     ew = json.load(f)
@@ -52,6 +54,7 @@ with open(weights_path) as f:
 w1, w2, w3 = ew["w1"], ew["w2"], ew["w3"]
 
 print("Models ready.")
+
 CLASS_NAMES = ["overripe", "ripe", "unripe"]  # must match your training folder order
 print("Models ready.")
 
